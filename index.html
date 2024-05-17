@@ -9,13 +9,37 @@
 </head>
 <body>
     <div id="container">
+        <div id="scoreboard">
+            <div id="scoreSlots">
+                <div class="scoreSlot" id="playerScore">
+                    <div id="playerLabel">
+                        Player
+                    </div>
+                    <div class="scoreValue" id="playerValue">
+    
+                    </div>
+                </div>
+                -
+                <div class="scoreSlot" id="computerScore">
+                    <div id="computerLabel">
+                        Computer
+                    </div>
+                    <div class="scoreValue" id="computerValue">
+                    </div>
+                </div>
+            </div>
+            <div id="gameResult">
+                
+            </div>
+        </div>
+        <div id="result"></div>
         <div id="buttons">
             <button type="button" id="rockBtn"><i class="fa-solid fa-hand-back-fist"></i> Rock</button>
             <button type="button" id="paperBtn"><i class="fa-solid fa-hand"></i> Paper</button>
             <button type="button" id="scissorsBtn"><i class="fa-solid fa-hand-scissors"></i> Scissors</button>
         </div>
         
-        <div id="result"></div>
+
     </div>
 
     <script src="myscripts.js">

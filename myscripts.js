@@ -2,6 +2,8 @@ const rockBtn = document.getElementById("rockBtn");
 const paperBtn = document.getElementById("paperBtn");
 const scissorsBtn = document.getElementById("scissorsBtn");
 const resultField = document.getElementById("result");
+let playerScore = 0;
+let computerScore = 0;
 
 
 function getComputerChoice() {
@@ -31,28 +33,40 @@ function playRound(playerSelection, computerSelection) {
     
     switch(true) {
         case (capitalizedPlayerInput == "Rock") && (computerSelection == "Scissors"):
+            playerScore++;
+            updateScore();
             return "You Win! Rock beats Scissors";
             break;
         case (capitalizedPlayerInput == "Rock") && (computerSelection == "Paper"):
+            computerScore++;
+            updateScore();
             return "You Lose! Paper beats Rock";
             break;
         case (capitalizedPlayerInput == "Paper") && (computerSelection == "Rock"):
+            playerScore++;
+            updateScore();
             return "You Win! Paper beats Rock";
             break;
         case (capitalizedPlayerInput == "Paper") && (computerSelection == "Scissors"):
+            computerScore++;
+            updateScore();
             return "You Lose! Scissors beats Paper";
             break;
         case (capitalizedPlayerInput == "Scissors") && (computerSelection == "Rock"):
+            computerScore++;
+            updateScore();
             return "You Lose! Rock beats Scissors";
             break;
         case (capitalizedPlayerInput == "Scissors") && (computerSelection == "Paper"):
+            playerScore++;
+            updateScore();
             return "You Win! Scissors beats Paper";
             break;
         default:
             return "Please choose Rock, Paper, or Scissors";
     }
 }
-  
+
 function playGame(playerChoice) {
     const btn = document.querySelector("button");
 
@@ -71,7 +85,12 @@ function playGame(playerChoice) {
 
 }
 
+function updateScore() {
+    playerValue.textContent = playerScore;
+    computerValue.textContent = computerScore; 
+}
 
+// rps button choices
 rockBtn.addEventListener("click", function() {
     playGame("Rock");
 });
@@ -84,3 +103,9 @@ scissorsBtn.addEventListener("click", function() {
     playGame("Scissors");
 });
 
+// scoreboard
+const playerValue = document.getElementById("playerValue");
+const computerValue = document.getElementById("computerValue");
+
+playerValue.textContent = playerScore;
+computerValue.textContent = computerScore;

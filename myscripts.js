@@ -1,3 +1,9 @@
+const rockBtn = document.getElementById("rockBtn");
+const paperBtn = document.getElementById("paperBtn");
+const scissorsBtn = document.getElementById("scissorsBtn");
+const resultField = document.getElementById("result");
+
+
 function getComputerChoice() {
     // generate random int from 0 to 2
     randInt = Math.floor(Math.random() * 3);
@@ -47,17 +53,34 @@ function playRound(playerSelection, computerSelection) {
     }
 }
   
-function playGame() {
+function playGame(playerChoice) {
+    const btn = document.querySelector("button");
+
     console.log("Let's play 5 games of Rock, Paper, Scissors!");
 
-    for (let i = 0; i < 5; i++) {
-        let playerResponse = prompt("Choose Rock, Paper, or Scissors");
-        let computerResponse = getComputerChoice();
+    // let playerResponse = prompt("Choose Rock, Paper, or Scissors");
+    let playerResponse = playerChoice;
+    let computerResponse = getComputerChoice();
 
-        let result = playRound(playerResponse, computerResponse);
-        console.log(result);
-    }
+    let result = playRound(playerResponse, computerResponse);
+    console.log(result);
+
+    resultField.textContent = result;
 
     console.log("Thanks for playing!");
 
 }
+
+
+rockBtn.addEventListener("click", function() {
+    playGame("Rock");
+});
+
+paperBtn.addEventListener("click", function() {
+    playGame("Paper");
+});
+
+scissorsBtn.addEventListener("click", function() {
+    playGame("Scissors");
+});
+
